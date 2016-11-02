@@ -1,12 +1,8 @@
 class Hamming
-  def self.compute(a, b)
-    raise ArgumentError unless a.length == b.length
-    number = 0
-    i = 0
-    while i < a.length
-      number += 1 unless a[i] == b[i]
-      i += 1
-    end
-    number
+  def self.compute(str_1, str_2)
+    raise ArgumentError unless str_1.length == str_2.length
+    hamming = 0
+    str_1.chars.zip(str_2.chars) { |x, y| hamming += 1 unless x == y }
+    hamming
   end
 end
