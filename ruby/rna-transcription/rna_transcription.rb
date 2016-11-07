@@ -1,6 +1,6 @@
 class Complement
   def self.of_dna(dna)
-    return '' unless dna.count('CGTA').to_i == dna.length
+    return '' unless dna.count('CGTA') == dna.length
     dna.tr('CGTA', 'GCAU')
   end
 end
