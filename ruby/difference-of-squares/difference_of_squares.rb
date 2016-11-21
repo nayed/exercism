@@ -6,13 +6,11 @@ class Squares
   end
 
   def square_of_sum
-    return 0 if number == 0
-    (1..number).reduce(:+) ** 2
+    (0..number).reduce(:+) ** 2
   end
 
   def sum_of_squares
-    return 0 if number == 0
-    (1..number).inject { |sum, n| sum + n ** 2 }
+    (0..number).inject { |sum, n| sum + n ** 2 }
   end
 
   def difference
