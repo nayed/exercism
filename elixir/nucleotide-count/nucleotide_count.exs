@@ -40,9 +40,6 @@ defmodule NucleotideCount do
   """
   @spec histogram([char]) :: map
   def histogram(strand) do
-    histo = for nucleotide <- @nucleotides do
-      {nucleotide, count(strand, nucleotide)}
-    end
-    histo |> Map.new
+    Enum.into(@nucleotides, %{}, &({&1, count(strand, &1)}))
   end
 end
