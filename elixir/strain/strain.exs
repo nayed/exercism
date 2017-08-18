@@ -7,16 +7,7 @@ defmodule Strain do
   """
   @spec keep(list :: list(any), fun :: ((any) -> boolean)) :: list(any)
   def keep(list, fun) do
-    process_keep(list, fun, [])
-  end
-
-  defp process_keep([], _fun, result), do: Enum.reverse result
-  defp process_keep([h | t], fun, result) do
-    res = case apply(fun, [h]) do
-      true -> [h | result]
-      _ -> result
-    end
-    process_keep(t, fun, res)
+    process(:keep, list, fun, [])
   end
 
   @doc """
@@ -27,15 +18,15 @@ defmodule Strain do
   """
   @spec discard(list :: list(any), fun :: ((any) -> boolean)) :: list(any)
   def discard(list, fun) do
-    process_discard(list, fun, [])
+    process(:discard, list, fun, [])
   end
   
-  defp process_discard([], _fun, result), do: Enum.reverse result
-  defp process_discard([h | t], fun, result) do
-    res = case apply(fun, [h]) do
-      false -> [h | result]
-      _ -> result
+  defp process(_action, [], _fun, result), do: result
+  defp process(action, [h | t], fun, result) do
+    case { action, apply(fun, [h]) } do
+      {:keep, true}     -> process(action, t, fun, result ++ [h])
+      {:discard, false} -> process(action, t, fun, result ++ [h])
+      _                 -> process(action, t, fun, result)
     end
-    process_discard(t, fun, res)
   end
 end
