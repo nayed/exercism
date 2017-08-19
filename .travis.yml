@@ -7,7 +7,8 @@ script:
 matrix:
   include:
     - languag: elixir
-      elixir: 1.5
-      otp_release: 20
+      elixir: 1.5.0
+      otp_release: 20.0
       script:
-        - elixir elixir/travis_test.exs
+        - elixir --version
+        # - elixir elixir/travis_test.exs
