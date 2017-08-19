@@ -1,15 +1,4 @@
 language: ruby
 
 rvm:
-  - "2.3.1"
-
-script:
-  - ruby ./ruby/hello-world/hello_world_test.rb
-  - ruby ./ruby/hamming/hamming_test.rb
-  - ruby ./ruby/gigasecond/gigasecond_test.rb
-  - ruby ./ruby/rna-transcription/rna_transcription_test.rb
-  - ruby ./ruby/raindrops/raindrops_test.rb
-  - ruby ./ruby/difference-of-squares/difference_of_squares_test.rb
-  - ruby ./ruby/pangram/pangram_test.rb
-  - ruby ./ruby/sieve/sieve_test.rb
-  - ruby ./ruby/roman-numerals/roman_numerals_test.rb
+  - "2.4.1"
