@@ -1,7 +1,10 @@
+language: ruby
+rvm:
+  - "2.4.1"
+script:
+  - ruby ./ruby/travis_test.rb
+
 matrix:
   include:
-    - language: ruby
-    rvm:
-      - "2.4.1"
-    script:
-      - ruby ./ruby/travis_test.rb
+    - elixir: 1.5
+      otp_release: 20
