@@ -1,2 +1,7 @@
 test_files = Dir.glob("*/*/*test.rb")
-test_files.map {|file| system("ruby #{file}")}
+test_files.map do |file|
+  system("ruby #{file}")
+  if $?.exitstatus > 0
+    exit(1)
+  end
+end
