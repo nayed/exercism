@@ -17,5 +17,7 @@ elixir:
   - 1.5.0
 otp_release:
   - 20.0
+before_install:
+  - rvm install 2.4.1
 script:
   - ruby --version
