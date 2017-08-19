@@ -20,6 +20,7 @@ otp_release:
 before_install:
   - rvm install 2.4.1
 before_script:
+  - ls
   - cd elixir
 script:
   - elixir travis_test.exs
