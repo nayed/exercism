@@ -21,4 +21,5 @@ before_install:
   - rvm install 2.4.1
   - cd elixir
 script:
-  - elixir travis_test.exs
+  - cd ..
+  - elixir elixir/travis_test.exs
