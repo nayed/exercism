@@ -3,5 +3,8 @@ language: ruby
 rvm:
   - "2.4.1"
 
+install:
+  - gem install minitest
+
 script:
   - ruby ./ruby/test.rb
