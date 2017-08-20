@@ -1,4 +1,4 @@
-class Fixnum
+class Integer
   ROMAN_NUMBERS = {
     "M"   =>  1000,
     "CM"  =>  900,
