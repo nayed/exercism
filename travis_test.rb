@@ -1,8 +1,7 @@
 def run_tests(language, compiler, ending_file)
-  underline = `tput smul`
   bold = `tput bold`
   red = `tput setaf 1`
-  green = `tput setaf 2`
+  green = `tput setaf 4`
   reset = `tput sgr0`
 
   test_files = Dir.glob("#{language}/*/*#{ending_file}")
@@ -10,11 +9,11 @@ def run_tests(language, compiler, ending_file)
     name = project_name file, ending_file
     system "#{compiler} #{file}"
     if $?.exitstatus > 0
-      system "printf '\n#{bold}#{red}#{underline}#{name} test failed.\n'"
+      system "printf '\n#{bold}#{red}#{name} test failed\n'"
       return exit(1) # Exits with "failure" code
     end
 
-    system "printf '\n#{bold}#{green}#{underline}#{name} test finished without error.#{reset}\n\n'"
+    system "printf '\n#{bold}#{green}#{name} test finished without error#{reset}\n\n'"
   end
 end
 
