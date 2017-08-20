@@ -9,11 +9,11 @@ def run_tests(language, compiler, ending_file)
     name = project_name file, ending_file
     system "#{compiler} #{file}"
     if $?.exitstatus > 0
-      system "printf '\n#{bold}#{red}#{name} test failed\n'"
+      system "printf '#{bold}#{red}#{name} tests failed\n'"
       return exit(1) # Exits with "failure" code
     end
 
-    system "printf '\n#{bold}#{green}#{name} test finished without error#{reset}\n\n'"
+    system "printf '#{bold}#{green}#{name} tests finished without error#{reset}\n\n'"
   end
 end
 
