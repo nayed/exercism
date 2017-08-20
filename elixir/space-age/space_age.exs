@@ -16,7 +16,6 @@ defmodule SpaceAge do
   """
   @spec age_on(planet, pos_integer) :: float
   def age_on(planet, seconds) do
-    {:ok, earth_years} = Map.fetch(@planets_earth_years, planet)
-    seconds / earth_years / @earth_seconds_year
+    seconds / @planets_earth_years[planet] / @earth_seconds_year
   end
 end
