@@ -27,14 +27,11 @@ defmodule TwelveDays do
   defp construct_verse(0, numth, presents), do:
     "On the #{numth} day of Christmas my true love gave to me, #{presents}."
   
-  defp construct_verse(1, numth, presents) do
-    add_and = if String.length(presents) > 0 do
-      "and "
-    else
-      ""
-    end
-    construct_verse(0, numth, presents <> add_and <> get_present(1))
-  end
+  defp construct_verse(1, numth, ""), do:
+    construct_verse(0, numth, get_present(1))
+  
+  defp construct_verse(1, numth, presents), do:
+    construct_verse(0, numth, presents <> "and " <> get_present(1))
 
   defp construct_verse(number, numth, presents), do:
     construct_verse(number - 1, numth, presents <> get_present(number) <> ", ")
@@ -59,7 +56,5 @@ defmodule TwelveDays do
   Sing all 12 verses, in order, one verse per line.
   """
   @spec sing():: String.t()
-  def sing do
-    verses(1, 12)
-  end
+  def sing, do: verses(1, 12)
 end
