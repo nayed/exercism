@@ -22,14 +22,13 @@ module Exercism
             system "npm i" if language == "ecmascript" && !self.node_modules?(path)
 
             name = self.project_name(file, ending_file)
-            language = language.capitalize
 
             system "#{script} #{test_file}"
             if $?.exitstatus > 0
-              system "printf '#{bold}#{red}#{language}: #{name} tests failed\n'"
+              system "printf '#{bold}#{red}#{language.capitalize}: #{name} tests failed\n'"
               return exit(1) # Exits with "failure" code
             end
-            system "printf '#{bold}#{blue}#{language}: #{name} tests finished without error#{reset}\n\n'"
+            system "printf '#{bold}#{blue}#{language.capitalize}: #{name} tests finished without error#{reset}\n\n'"
           end
         end
       end
