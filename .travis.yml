@@ -7,8 +7,6 @@ before_install:
   - rvm install 2.4.1
   - nvm install 8.4.0
   - npm install npm@5 -g
-  - node --version
-  - npm --version
   - cd elixir
 script:
   - cd ..
