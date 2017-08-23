@@ -8,4 +8,4 @@ before_install:
   - cd elixir
 script:
   - cd ..
-  - ruby travis_test.rb
+  - ruby travis.rb
