@@ -39,7 +39,8 @@ module Exercism
   def self.project_name(file, ending_file)
     file
       .split("/")
-      .last.chomp(ending_file)
+      .last
+      .chomp(ending_file)
       .scan(/([A-Za-z0-9]+)/)
       .map { |word| word.join.capitalize }
       .join(" ")
