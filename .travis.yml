@@ -6,7 +6,9 @@ otp_release:
 before_install:
   - rvm install 2.4.1
   - nvm install 8.4.0
-  - cd elixir
+  - cd ecmascript
+  - npm i
+  - cd ../elixir
 script:
   - cd ..
   - ruby travis.rb
