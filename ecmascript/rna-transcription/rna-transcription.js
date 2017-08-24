@@ -4,12 +4,7 @@ export default class Transcriptor {
   }
 
   toRna(nucleotide) {
-    return nucleotide
-      .split('')
-      .map(n => {
-        return this.check_nucleotide(n)
-      })
-      .join('')
+    return nucleotide.split('').map(n => this.check_nucleotide(n)).join('')
   }
 
   check_nucleotide(n) {
