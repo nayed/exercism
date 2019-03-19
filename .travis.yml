@@ -3,8 +3,9 @@ elixir:
   - 1.8.1
 otp_release:
   - 21.0
+rvm:
+  - 2.5
 before_install:
-  - rvm install 2.5
   - nvm install node
   - cd elixir
 script:
