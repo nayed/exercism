@@ -4,14 +4,14 @@ module Exercism
   @languages = {
     "ruby" => ["ruby", "test.rb"],
     "elixir" => ["elixir", "test.exs"],
-    "ecmascript" => ["./../node_modules/.bin/jest --no-cache", "spec.js"]
+    "javascript" => ["./../node_modules/.bin/jest --no-cache", "spec.js"]
   }
 
   def self.run_tests
     bold, red, blue, reset = `tput bold`, `tput setaf 1`, `tput setaf 4`, `tput sgr0`
     
     @languages.each do |language, tool|
-      FileUtils.cd("ecmascript") { system "npm i" if language == "ecmascript" && !self.node_modules?("ecmascript") }
+      FileUtils.cd("javascript") { system "npm i" if language == "javascript" && !self.node_modules?("javascript") }
       script, ending_file = tool
       test_files = Dir.glob "#{language}/*/*#{ending_file}"
 
