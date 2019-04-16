@@ -1,12 +1,9 @@
 const value = colors => {
-  const [decimalColor, unitColor] = colors
-  const decimal = getColorNumber(decimalColor)
-  const unit = getColorNumber(unitColor)
+  let result = ''
+  colors.forEach(item => (result += bandColors.indexOf(item.toLowerCase())))
 
-  return Number(`${decimal}${unit}`)
+  return Number(result)
 }
-
-const getColorNumber = color => bandColors.indexOf(color.toLowerCase())
 
 const bandColors = [
   'black',
