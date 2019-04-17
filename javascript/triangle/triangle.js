@@ -8,7 +8,7 @@ class Triangle {
   }
 
   checkSides() {
-    return this.sides.every(item => item > 0)
+    return this.sides.every(side => side > 0)
   }
 
   checkSidesEquality() {
