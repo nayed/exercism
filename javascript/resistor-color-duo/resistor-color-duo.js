@@ -1,9 +1,7 @@
-const value = colors => {
-  let result = ''
-  colors.forEach(item => (result += bandColors.indexOf(item.toLowerCase())))
+const colorCode = color => bandColors.indexOf(color)
 
-  return Number(result)
-}
+const value = colors =>
+  colors.reduce((acc, color) => acc * 10 + colorCode(color), 0)
 
 const bandColors = [
   'black',
